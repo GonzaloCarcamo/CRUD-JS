@@ -4,6 +4,7 @@ const morgan = require('morgan');
 const app = express();
 
 // importing routes
+const indexRoutes = require('./routes/index');
 
 // settings
 app.set('port', process.env.PORT || 3000);
@@ -14,6 +15,7 @@ app.set('view engine', 'ejs');
 app.use(morgan('dev'));
 
 // routes
+app.use('/', indexRoutes);
 
 // starting the server
 app.listen(app.get('port'), () => {
