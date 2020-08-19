@@ -2,6 +2,13 @@ const path = require('path');
 const express = require('express');
 const morgan = require('morgan');
 const app = express();
+const mongoose = require('mongoose');
+
+// connecting to db
+mongoose.connect('mongodb://localhost/crud-mongo')
+    .then(db => console.log('DB connect'))
+    .catch(err => console.log(err));
+
 
 // importing routes
 const indexRoutes = require('./routes/index');
@@ -16,6 +23,7 @@ app.use(morgan('dev'));
 
 // routes
 app.use('/', indexRoutes);
+app.use(express.urlencoded({extended: false}));
 
 // starting the server
 app.listen(app.get('port'), () => {
