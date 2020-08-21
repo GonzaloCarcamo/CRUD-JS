@@ -1,8 +1,9 @@
 const path = require('path');
 const express = require('express');
 const morgan = require('morgan');
-const app = express();
 const mongoose = require('mongoose');
+
+const app = express();
 
 // connecting to db
 mongoose.connect('mongodb://localhost/crud-mongo')
@@ -20,10 +21,11 @@ app.set('view engine', 'ejs');
 
 // middlewares
 app.use(morgan('dev'));
+app.use(express.urlencoded({extended: false}));
 
 // routes
 app.use('/', indexRoutes);
-app.use(express.urlencoded({extended: false}));
+
 
 // starting the server
 app.listen(app.get('port'), () => {

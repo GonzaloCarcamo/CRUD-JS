@@ -1,0 +1,51 @@
+<%- include ('./partials/_header') -%>
+
+<nav class="navbar navbar-dark bg-dark mb-4">
+    <a href="/" class="navbar-brand">CRUD NODE-MONGO</a>
+</nav>
+
+<div class="container">
+    <div class="row">
+
+        <!-- Form -->
+        <div class="col-md-5">
+            <div class="card">
+                <div class="card-body">
+                    <form action='/add' method='POST'>
+                        <div class="form-group">
+                            <input type="text" name="title" placeholder="Insert a title" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <textarea name="description" cols="80" class="form-control"
+                            placeholder="Insert a description"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">Add</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- list -->
+        <div class="col-md-7">
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th>N°</th>
+                        <th>Title</th>
+                        <th>Description</th>
+                        <th>Operation</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <% for(var i = 0; i < tasks.length; i++) { %>
+                        <p><%= tasks[i] %></p>
+                    <% } %>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</div>
+
+<%- include ('./partials/_footer') -%>
