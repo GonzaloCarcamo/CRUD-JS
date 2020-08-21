@@ -39,7 +39,20 @@
 
                 <tbody>
                     <% for(var i = 0; i < tasks.length; i++) { %>
-                        <p><%= tasks[i] %></p>
+                        <tr>
+                            <td><%= i + 1 %></td>
+                            <td><%= tasks[i].title %></td>
+                            <td><%= tasks[i].description %></td>
+                            <td>
+                                <a href="/turn/<%= tasks[i]._id %>" 
+                                    class="btn <%= tasks[i].status 
+                                    ? 'btn-success' 
+                                    : 'btn-dark' %>"
+                                    >Hecho</a>
+                                <a href="/delete/<%= tasks[i]._id %>" class="btn btn-danger">Borrar</a>
+                                <a href="/edit/<%= tasks[i]._id %>" class="btn btn-info">Editar</a>
+                            </td>
+                        </tr>
                     <% } %>
                 </tbody>
             </table>
