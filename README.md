@@ -1,6 +1,5 @@
 # CRUD-JS
-CRUD con NodeJS, MongoDB y Bootstrap4
-CRUD with NodeJS, MongoDB and Bootstrap4
+CRUD con NodeJS, MongoDB y Bootstrap4 / CRUD with NodeJS, MongoDB and Bootstrap4
 
 Aplicación que permite ingresar, editar, marcar y eliminar tareas. Los datos son
 guargados en base de datos MongoDB.
